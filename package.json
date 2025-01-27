@@ -12,16 +12,15 @@
   },
   "license": "ISC",
   "author": "farmilag",
-  "type":  "module",
+  "type": "module",
   "main": "brain-games.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-  "brain-games": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
-
-  
-  
-}
-
