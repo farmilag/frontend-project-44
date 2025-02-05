@@ -13,7 +13,7 @@ function playGame() {
 
     for (let j = 0; j < 3; j++) {
         const shagProgressii = Math.floor(Math.random() * 9) + 1;
-        const lengthArr = Math.floor(Math.random() * 9) + 3;
+        const lengthArr = Math.floor(Math.random() * 9) + 10;
         const indexVirez = Math.floor(Math.random() * (lengthArr - 1)) + 1;
         let nachNumber = Math.floor(Math.random() * 15) + 1;
         let arrNum = [];
