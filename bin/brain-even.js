@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import { greetUser } from '../src/cli.js';
+import greetUser from '../src/cli.js';
 
 const playEvenGame = () => {
   const QUESTIONS_COUNT = 3;

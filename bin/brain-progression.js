@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetUser } from '../src/cli.js';
+import greetUser from '../src/cli.js';
 
 function getUserAnswer() {
   return readlineSync.question('Your answer: ');
