@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
 import greetUser from '../src/cli.js';
+import { getRandomInt, getUserAnswer } from '../src/utils.js';
 
 const name = greetUser();
 console.log('What is the result of the expression?');
@@ -9,11 +9,10 @@ console.log('What is the result of the expression?');
 let correctAnswers = 0;
 
 for (let i = 0; i < 3; i += 1) {
-  const number1 = Math.floor(Math.random() * 100) + 1;
-  const number2 = Math.floor(Math.random() * 100) + 1;
+  const number1 = getRandomInt(1, 100);
+  const number2 = getRandomInt(1, 100);
   const operators = ['*', '+', '-'];
-  const randomIndex = Math.floor(Math.random() * operators.length);
-  const randomOperator = operators[randomIndex];
+  const randomOperator = operators[getRandomInt(0, operators.length - 1)];
   console.log(`Question: ${number1} ${randomOperator} ${number2}`);
 
   let result;
@@ -31,18 +30,19 @@ for (let i = 0; i < 3; i += 1) {
       result = null;
   }
 
-  const userAnswer = readlineSync.question('Your answer: ');
+  const userAnswer = getUserAnswer('Your answer');
 
   if (Number(userAnswer) === result) {
     console.log('Correct!');
     correctAnswers += 1;
-
-    if (correctAnswers === 3) {
-      console.log(`Congratulations, ${name}!`);
-    }
   } else {
     console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${result}'.`);
     console.log(`Let's try again, ${name}!`);
+    i -= 1; // Повторить этот вопрос
+  }
+
+  if (correctAnswers === 3) {
+    console.log(`Congratulations, ${name}!`);
     break;
   }
 }
