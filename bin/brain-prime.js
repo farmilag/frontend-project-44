@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 
+import readlineSync from 'readline-sync';
 import greetUser from '../src/cli.js';
-import { getRandomInt, getUserAnswer } from '../src/utils.js';
+
+function getUserAnswer() {
+  return readlineSync.question('Your answer: ');
+}
 
 function isPrime(number) {
   if (number < 2) return false;
@@ -11,23 +15,27 @@ function isPrime(number) {
   return true;
 }
 
-const name = greetUser();
-console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+function playGame() {
+  const name = greetUser();
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
-for (let i = 0; i < 3; i += 1) {
-  const number = getRandomInt(1, 100);
-  console.log(`Question: ${number}`);
+  for (let i = 0; i < 3; i += 1) {
+    const number = Math.floor(Math.random() * 100) + 1;
+    console.log(`Question: ${number}`);
 
-  const correctAnswer = isPrime(number) ? 'yes' : 'no';
-  const userAnswer = getUserAnswer('Your answer');
+    const userAnswer = getUserAnswer();
+    const corectAnswer = isPrime(number) ? 'yes' : 'no';
 
-  if (userAnswer === correctAnswer) {
-    console.log('Correct!');
-  } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-    console.log(`Let's try again, ${name}!`);
-    i -= 1; // Повторить этот вопрос
+    if (userAnswer === corectAnswer) {
+      console.log('Correct!');
+    } else {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${corectAnswer}'.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
+    }
   }
+
+  console.log(`Congratulations, ${name}!`);
 }
 
-console.log(`Congratulations, ${name}!`);
+playGame();

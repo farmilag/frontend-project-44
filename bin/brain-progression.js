@@ -1,17 +1,21 @@
 #!/usr/bin/env node
 
+import readlineSync from 'readline-sync';
 import greetUser from '../src/cli.js';
-import { getRandomInt, getUserAnswer } from '../src/utils.js';
+
+function getUserAnswer() {
+  return readlineSync.question('Your answer: ');
+}
 
 function playGame() {
   const name = greetUser();
   console.log('What number is missing in the progression?');
 
   for (let j = 0; j < 3; j += 1) {
-    const shagProgressii = getRandomInt(1, 10);
-    const lengthArr = getRandomInt(5, 10);
-    const indexVirez = getRandomInt(0, lengthArr - 1);
-    let nachNumber = getRandomInt(1, 50);
+    const shagProgressii = Math.floor(Math.random() * 10) + 1;
+    const lengthArr = Math.floor(Math.random() * 6) + 5;
+    const indexVirez = Math.floor(Math.random() * lengthArr);
+    let nachNumber = Math.floor(Math.random() * 50) + 1;
 
     const arrNum = [];
     for (let i = 0; i < lengthArr; i += 1) {
@@ -20,18 +24,18 @@ function playGame() {
     }
 
     const corectAnswer = arrNum[indexVirez];
-    arrNum[indexVirez] = '..';
+    arrNum[indexVirez] = '..'; // Заменяем элемент на ".."
     console.log(`Question: ${arrNum.join(' ')}`);
 
-    const userAnswer = getUserAnswer('Your answer');
+    const userAnswer = getUserAnswer();
 
-    if (Number(userAnswer) === corectAnswer) {
-      console.log('Correct!');
-    } else {
+    if (Number(userAnswer) !== corectAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${corectAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
-      j -= 1; // Повторить этот вопрос
+      return;
     }
+
+    console.log('Correct!');
   }
 
   console.log(`Congratulations, ${name}!`);
