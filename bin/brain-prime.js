@@ -1,11 +1,7 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
 import greetUser from '../src/cli.js';
-
-function getUserAnswer() {
-  return readlineSync.question('Your answer: ');
-}
+import { getUserAnswer, generationRandomNumer, getResponseProcessing } from '../src/commonFun.js';
 
 function isPrime(number) {
   if (number < 2) return false;
@@ -20,21 +16,16 @@ function playGame() {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
   for (let i = 0; i < 3; i += 1) {
-    const number = Math.floor(Math.random() * 100) + 1;
+    const number = generationRandomNumer(100, 1);
     console.log(`Question: ${number}`);
 
     const userAnswer = getUserAnswer();
     const corectAnswer = isPrime(number) ? 'yes' : 'no';
 
-    if (userAnswer === corectAnswer) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${corectAnswer}'.`);
-      console.log(`Let's try again, ${name}!`);
-      return;
+    if (!getResponseProcessing(userAnswer, corectAnswer, name)) {
+      break;
     }
   }
-
   console.log(`Congratulations, ${name}!`);
 }
 

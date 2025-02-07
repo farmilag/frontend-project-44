@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
 import greetUser from '../src/cli.js';
+import { getUserAnswer, generationRandomNumer } from '../src/commonFun.js';
 
 const name = greetUser();
 console.log('Find the greatest common divisor of given numbers.');
@@ -20,11 +20,11 @@ function gcd(x, y) {
 }
 
 for (let i = 0; i < 3; i += 1) {
-  const number1 = Math.floor(Math.random() * 99) + 1;
-  const number2 = Math.floor(Math.random() * 99) + 1;
+  const number1 = generationRandomNumer(99, 1);
+  const number2 = generationRandomNumer(99, 1);
   console.log(`Question: ${number1} ${number2}`);
 
-  const userAnswer = readlineSync.question('Your answer: ');
+  const userAnswer = getUserAnswer();
   const correctAnswer = gcd(number1, number2);
 
   if (Number(userAnswer) === correctAnswer) {
