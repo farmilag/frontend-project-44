@@ -9,7 +9,7 @@ function playGame() {
 
   for (let j = 0; j < 3; j += 1) {
     const shagProgressii = generationRandomNumer(10, 1);
-    const lengthArr = generationRandomNumer(6, 3);
+    const lengthArr = generationRandomNumer(6, 5);
     const indexVirez = generationRandomNumer(lengthArr, 0);
     let nachNumber = generationRandomNumer(50, 1);
 
