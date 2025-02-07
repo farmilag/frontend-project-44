@@ -42,13 +42,7 @@
 
 **Пример:**
 ```
-Welcome to the Brain Games!
-May I have your name? John
-Hello, John!
-Answer "yes" if the number is even, otherwise answer "no".
-Question: 15
-Your answer: no
-Correct!
+https://asciinema.org/a/zJ3nYopTee2UtmZikQ9OLG4Xc
 ```
 
 ---
@@ -58,13 +52,7 @@ Correct!
 
 **Пример:**
 ```
-Welcome to the Brain Games!
-May I have your name? John
-Hello, John!
-What is the result of the expression?
-Question: 5 + 3
-Your answer: 8
-Correct!
+https://asciinema.org/a/vaQsW0ARQtQDnvhniJLlCnf5r
 ```
 
 ---
@@ -74,13 +62,7 @@ Correct!
 
 **Пример:**
 ```
-Welcome to the Brain Games!
-May I have your name? John
-Hello, John!
-Find the greatest common divisor of given numbers.
-Question: 12 18
-Your answer: 6
-Correct!
+https://asciinema.org/a/duB4vwX24RsB1NOQDu3LkoG2t
 ```
 
 ---
@@ -90,13 +72,7 @@ Correct!
 
 **Пример:**
 ```
-Welcome to the Brain Games!
-May I have your name? John
-Hello, John!
-What number is missing in the progression?
-Question: 5, 7, 9, .., 13
-Your answer: 11
-Correct!
+https://asciinema.org/a/g3Qo6m57PQ92WCOQjPAVtPifV
 ```
 
 ---
@@ -106,13 +82,7 @@ Correct!
 
 **Пример:**
 ```
-Welcome to the Brain Games!
-May I have your name? John
-Hello, John!
-Answer "yes" if given number is prime. Otherwise answer "no".
-Question: 7
-Your answer: yes
-Correct!
+https://asciinema.org/a/qVpsR8Md7ShJw7w3zclZ21zku
 ```
 
 ---
