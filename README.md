@@ -42,7 +42,7 @@
 
 **Пример:**
 
-https://asciinema.org/a/zJ3nYopTee2UtmZikQ9OLG4Xc
+![even](https://github.com/user-attachments/assets/38a9ccb7-58f1-484a-88c0-21cb71bb0511)
 
 
 ---
@@ -52,7 +52,7 @@ https://asciinema.org/a/zJ3nYopTee2UtmZikQ9OLG4Xc
 
 **Пример:**
 
-https://asciinema.org/a/vaQsW0ARQtQDnvhniJLlCnf5r
+![calc](https://github.com/user-attachments/assets/8da16fdc-ca55-4847-be7f-4a62cade0dfd)
 
 
 ---
@@ -62,7 +62,7 @@ https://asciinema.org/a/vaQsW0ARQtQDnvhniJLlCnf5r
 
 **Пример:**
 
-https://asciinema.org/a/duB4vwX24RsB1NOQDu3LkoG2t
+![gcd](https://github.com/user-attachments/assets/75bab1a0-4dc8-4669-8c9b-bf8790ebc12c)
 
 
 ---
@@ -72,7 +72,7 @@ https://asciinema.org/a/duB4vwX24RsB1NOQDu3LkoG2t
 
 **Пример:**
 
-https://asciinema.org/a/g3Qo6m57PQ92WCOQjPAVtPifV
+![progression](https://github.com/user-attachments/assets/4d0ce668-d26e-43f0-8b85-1778f16302ac)
 
 
 ---
@@ -82,7 +82,7 @@ https://asciinema.org/a/g3Qo6m57PQ92WCOQjPAVtPifV
 
 **Пример:**
 
-https://asciinema.org/a/qVpsR8Md7ShJw7w3zclZ21zku
+![prime](https://github.com/user-attachments/assets/1f42c498-0b23-4d87-839e-fd7c19c91d7a)
 
 
 ---
