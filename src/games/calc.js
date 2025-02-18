@@ -1,17 +1,14 @@
 import greetUser from '../cli.js';
-import { getUserAnswer, generationRandomNumer, getResponseProcessing } from '../commonFun.js';
+import { generationRandomNumer, runGame } from '../commonFun.js';
 
-function playGame() {
+const playGame = () => {
   const name = greetUser();
-  console.log('What is the result of the expression?');
 
-  for (let i = 0; i < 3; i += 1) {
+  const generateRound = () => {
     const number1 = generationRandomNumer(100, 1);
     const number2 = generationRandomNumer(100, 1);
     const operators = ['*', '+', '-'];
-    const randomIndex = Math.floor(Math.random() * operators.length);
-    const randomOperator = operators[randomIndex];
-    console.log(`Question: ${number1} ${randomOperator} ${number2}`);
+    const randomOperator = operators[Math.floor(Math.random() * operators.length)];
 
     let result;
     switch (randomOperator) {
@@ -28,14 +25,17 @@ function playGame() {
         result = null;
     }
 
-    const userAnswer = getUserAnswer();
+    return {
+      question: `${number1} ${randomOperator} ${number2}`,
+      correctAnswer: result,
+    };
+  };
 
-    if (!getResponseProcessing(userAnswer, result, name)) {
-      break;
-    }
-    if (i === 2) {
-      console.log(`Congratulations, ${name}!`);
-    }
-  }
-}
+  runGame(
+    'What is the result of the expression?',
+    generateRound,
+    name,
+  );
+};
+
 export default playGame;

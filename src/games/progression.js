@@ -1,33 +1,34 @@
 import greetUser from '../cli.js';
-import { getUserAnswer, generationRandomNumer, getResponseProcessing } from '../commonFun.js';
+import { generationRandomNumer, runGame } from '../commonFun.js';
 
-function playGame() {
+const playGame = () => {
   const name = greetUser();
-  console.log('What number is missing in the progression?');
 
-  for (let j = 0; j < 3; j += 1) {
-    const shagProgressii = generationRandomNumer(10, 1);
-    const lengthArr = generationRandomNumer(6, 5);
-    const indexVirez = generationRandomNumer(lengthArr, 0);
-    let nachNumber = generationRandomNumer(50, 1);
+  const generateRound = () => {
+    const step = generationRandomNumer(10, 1);
+    const length = generationRandomNumer(6, 5);
+    const hiddenIndex = generationRandomNumer(length, 0);
+    let startNumber = generationRandomNumer(50, 1);
 
-    const arrNum = [];
-    for (let i = 0; i < lengthArr; i += 1) {
-      arrNum.push(nachNumber);
-      nachNumber += shagProgressii;
+    const progression = [];
+    for (let i = 0; i < length; i += 1) {
+      progression.push(startNumber);
+      startNumber += step;
     }
 
-    const correctAnswer = arrNum[indexVirez];
-    arrNum[indexVirez] = '..';
-    console.log(`Question: ${arrNum.join(' ')}`);
+    const correctAnswer = progression[hiddenIndex];
+    progression[hiddenIndex] = '..';
+    return {
+      question: progression.join(' '),
+      correctAnswer,
+    };
+  };
 
-    const userAnswer = getUserAnswer();
+  runGame(
+    'What number is missing in the progression?',
+    generateRound,
+    name,
+  );
+};
 
-    if (!getResponseProcessing(userAnswer, correctAnswer, name)) {
-      return;
-    }
-  }
-
-  console.log(`Congratulations, ${name}!`);
-}
 export default playGame;
